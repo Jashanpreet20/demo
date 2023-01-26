@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+    <title>Document</title>
+</head>
+<style>
+    body{
+        border: 2px solid orange;
+        font-size: large;
+        margin-left: 300px;
+        margin-right: 200px;
+        
+    }
+    input{
+        margin-left: 10px;
+        margin-top: 5px;
+        height: 30px;   
+    }
+    label{
+        margin-left: 10px;
+    }
+  
+    button{
+        background-color: orange;
+        border: none;
+        color: white;
+        padding: 16px 32px;
+        text-align: center;   
+        margin: 20px;  
+        font-size: 16px;
+        width: 1000px;
+        cursor: pointer;
+      }
+</style>
+
+<body>
+    
+    <h1 style="color: orange; text-align: center;">Book a call</h1>
+    <hr>
+   
+    <form action="#" onsubmit="registeruser()">
+        <label for="name" ><b>Name</b></label><br>
+     <input type="text" placeholder="Enter name"  id="name"  size="160"  required>
+     <br>
+     <label for="email"><b>Email</b></label><br>
+    <input type="email" placeholder="Enter email" name="email" id="email" size="160"><br>
+    <label for="Phone"><b>Phone</b></label><br>
+    <input type="Phone" placeholder="Enter phone" name="phone" size="160" id="phone" ><br>
+    <label for="timeforcall"><b>Time for call</b></label><br>
+    <input type="date" placeholder="date" name="date" size="80" id="date">
+    <input type="time" placeholder="time" name="time" size="80" id="time"><br>
+    <button type="submit" >Get a call</button>
+   
+    </form>
+    <script>
+
+        function registeruser()
+        {
+            const name=document.getElementById('name').value;
+            console.log(name);
+            const email=document.getElementById('email').value;
+            console.log(email);
+        }
+    </script>
+</body>
+</html>
