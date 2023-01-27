@@ -103,11 +103,15 @@
 
 var form=document.getElementById('addForm');
 var itemlist=document.getElementById('items');
+var filter=document.getElementById('filter');
+var desc=document.getElementById('description');
 
 //form sumbit event
 form.addEventListener('submit',additem);
 //delete event
 itemlist.addEventListener('click',removeitem);
+//filter event
+filter.addEventListener('keyup',filteritem);
 
 //add item function
 
@@ -119,6 +123,10 @@ function additem(e)
    
     //get input value
 var newitem=document.getElementById('item').value;
+var newdisc=document.getElementById('description').value;
+
+//create new element for description
+
 
 //create new element
 var li =document.createElement('li');
@@ -127,6 +135,8 @@ li.className='list-group-item';
 
 //add textnode
 li.appendChild(document.createTextNode(newitem));
+li.appendChild( document.createTextNode( '\u00A0' ) );
+li.appendChild(document.createTextNode(newdisc));
 
 //create delete button element
 var buttondlt=document.createElement('button');
@@ -162,6 +172,27 @@ function removeitem(e)
             itemlist.removeChild(li);
         }
     }
+}
+
+
+//filter item
+
+function filteritem(e){
+    var text=e.target.value.toLowerCase();
+    //get list
+    var items=itemlist.getElementsByTagName('li');
+    //convert into array
+    Array.from(items).forEach(function(item){
+        var itemname=item.firstChild.textContent;
+        var itemname1=item.childNodes[2].textContent;
+        if(itemname.toLocaleLowerCase().indexOf(text) != -1 || itemname1.toLocaleLowerCase().indexOf(text) != -1){
+            item.style.display='block';
+            } else{
+            item.style.display='none';
+        }
+    });
+    
+    
 }
 
 
