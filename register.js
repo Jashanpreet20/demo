@@ -10,12 +10,15 @@ form.addEventListener('submit',onsubmit);
 
 function onsubmit(e){
     e.preventDefault();
-
-    const myobj ={
-        name:nameInput.value,
-        email:emailInput.value
+    var showlist=[];
+   var name=nameInput.value;
+   var email=emailInput.value;
+    var myobj ={
+       name,
+       email
     }
-    localStorage.setItem('myobj',JSON.stringify(myobj));
+    showlist.push(myobj);
+    localStorage.setItem(myobj.name,JSON.stringify(showlist));
     // localStorage.setItem('name',nameInput.value);
     // localStorage.setItem('email',emailInput.value);
      
