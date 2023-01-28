@@ -34,8 +34,10 @@ var li=document.createElement('li');
 
 //create button
 var button=document.createElement('button');
+var editbtn=document.createElement('button');
 button.appendChild(document.createTextNode('delete'));
-li.appendChild( document.createTextNode( '\u00A0' ) );
+editbtn.appendChild(document.createTextNode('Edit'));
+
 
 
     if(nameInput.value ==='' || emailInput.value === ''){
@@ -51,8 +53,14 @@ li.appendChild( document.createTextNode( '\u00A0' ) );
         
 
        
-
+        li.appendChild( document.createTextNode( '\u00A0' ) );
+        li.appendChild( document.createTextNode( '\u00A0' ) );
+        li.appendChild( document.createTextNode( '\u00A0' ) );
         li.appendChild(button);
+        li.appendChild( document.createTextNode( '\u00A0' ) );
+        li.appendChild( document.createTextNode( '\u00A0' ) );
+        li.appendChild( document.createTextNode( '\u00A0' ) );
+        li.appendChild(editbtn);
          userlist.appendChild(li);
 
         //clear the fields
@@ -65,6 +73,18 @@ li.appendChild( document.createTextNode( '\u00A0' ) );
             userlist.removeChild(li);
            }
 
+           editbtn.onclick = () =>{
+            
+            localStorage.removeItem(myobj.names);
+            userlist.removeChild(li);
+            document.getElementById('email').value=myobj.email;
+            document.getElementById('name').value=myobj.names;
+           }
+
+
+
+
+
 
     }
 
@@ -73,12 +93,6 @@ li.appendChild( document.createTextNode( '\u00A0' ) );
      
 }
 
-function removeitem(e)
-{
-   
-  
-   
-}
 
 
 
