@@ -11,8 +11,13 @@ form.addEventListener('submit',onsubmit);
 function onsubmit(e){
     e.preventDefault();
 
-    localStorage.setItem('name',nameInput.value);
-    localStorage.setItem('email',emailInput.value);
+    const myobj ={
+        name:nameInput.value,
+        email:emailInput.value
+    }
+    localStorage.setItem('myobj',JSON.stringify(myobj));
+    // localStorage.setItem('name',nameInput.value);
+    // localStorage.setItem('email',emailInput.value);
      
     if(nameInput.value ==='' || emailInput.value === ''){
         msg.classList.add('error');
